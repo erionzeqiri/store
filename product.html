@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Detail</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">📱 PhoneCasePro</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="customize.html">Customize</a>
+    </nav>
+  </header>
+
+  <main class="product-detail">
+    <h1 id="productTitle">Loading...</h1>
+    <img id="productImage" src="" alt="">
+    <p class="price">$19.99</p>
+    <a href="customize.html" class="btn">Customize This Design</a>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get('product');
+
+    const productMap = {
+      "blue-marble": { title: "Blue Marble", image: "https://via.placeholder.com/400/87CEEB/000?text=Blue+Marble" },
+      "galaxy": { title: "Galaxy Glow", image: "https://via.placeholder.com/400/191970/fff?text=Galaxy+Glow" },
+      "pink-vibes": { title: "Pink Vibes", image: "https://via.placeholder.com/400/FF69B4/000?text=Pink+Vibes" },
+      "minimal": { title: "Minimal Elegance", image: "https://via.placeholder.com/400/f0f0f0/000?text=Minimal+Case" },
+      "retro": { title: "Retro Pop", image: "https://via.placeholder.com/400/ff6347/fff?text=Retro+Pop" },
+      "nature": { title: "Nature Vibes", image: "https://via.placeholder.com/400/228B22/fff?text=Nature+Vibes" }
+    };
+
+    const data = productMap[product];
+    if (data) {
+      document.getElementById('productTitle').textContent = data.title;
+      document.getElementById('productImage').src = data.image;
+    }
+  </script>
+</body>
+</html>
